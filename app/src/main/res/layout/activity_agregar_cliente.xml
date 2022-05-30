@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
+        android:padding="8pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +27,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt">
             android:id="@+id/activity_agregar_cliente_til_nombres_apellidos"
 
             <com.google.android.material.textfield.TextInputEditText
@@ -39,7 +41,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt">
             android:id="@+id/activity_agregar_cliente_til_telefono"
 
             <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +54,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt">
             android:id="@+id/activity_agregar_cliente_til_correo"
 
             <com.google.android.material.textfield.TextInputEditText
@@ -70,6 +74,7 @@
                 android:id="@+id/activity_agregar_cliente_btn_guardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8pt"
                 android:text="Guardar" />
 
         </LinearLayout>
@@ -88,6 +93,7 @@
                     android:id="@+id/activity_agregar_cliente_btn_citas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Citas" />
 
@@ -95,6 +101,7 @@
                     android:id="@+id/activity_agregar_cliente_btn_agregar_cita"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Agregrar Cita" />
 
@@ -102,6 +109,7 @@
                     android:id="@+id/activity_agregar_clientes_btn_clientes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Clientes" />
 

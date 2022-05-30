@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="8pt"
     tools:context=".ListadoClientesActivity">
 
     <LinearLayout
@@ -25,6 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingLeft="8pt"
+                android:paddingTop="8pt"
                 android:text="Buscar"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -33,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="---------" />
+                android:text="-------------------" />
         </LinearLayout>
 
         <LinearLayout
@@ -42,46 +45,87 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/activity_listado_clientes_tv_title_clientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="LIstado clientes"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
                 android:id="@+id/activity_listado_clientes_tv_title_cliente1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8:00          Ana Román"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_hora_disponible1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="8:30          .................................................................."
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Ana Román"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/activity_listado_clientes_tv_title_cliente2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9:00          Leticia Fernández"
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Leticia Fernández"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_hora_disponible2"
+                android:id="@+id/activity_listado_clientes_tv_title_cliente3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9:30          .................................................................."
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Marcela Romero"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_hora_disponible3"
+                android:id="@+id/activity_listado_clientes_tv_title_cliente4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10:00        .................................................................."
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Ruben Espinoza"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_hora_disponible4"
+                android:id="@+id/activity_listado_clientes_tv_title_cliente5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10:30        .................................................................."
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Ricardo Muñoz"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/activity_listado_clientes_tv_title_cliente6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Adriana Castillo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/activity_listado_clientes_tv_title_cliente7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Gabriela Santander"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/activity_listado_clientes_tv_title_cliente9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8pt"
+                android:paddingLeft="8pt"
+                android:text="- Rodrigo Fuentes"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -93,6 +137,8 @@
                 android:id="@+id/activity_listado_clientes_btn_agregar_nuevo_cliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8pt"
+                android:layout_marginBottom="8pt"
                 android:text="Agregar Nuevo Cliente" />
         </LinearLayout>
 
@@ -111,6 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingLeft="8pt"
                     android:text="Citas" />
 
                 <Button
@@ -118,6 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingLeft="8pt"
                     android:text="Agregar cita" />
 
                 <Button
@@ -125,6 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingLeft="8pt"
                     android:text="Clientes" />
             </LinearLayout>
         </LinearLayout>

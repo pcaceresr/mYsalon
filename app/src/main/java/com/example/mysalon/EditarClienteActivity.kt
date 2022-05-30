@@ -21,9 +21,9 @@ class EditarClienteActivity : AppCompatActivity() {
         val btnToListadoClientesDescartar = findViewById<Button>(R.id.activity_editar_cliente_btn_descartar)
 
         btnToListadoClientesDescartar.setOnClickListener {
-            val irVistaListadoClientesDescartar = Intent(this, ListadoClientesActivity::class.java)
-            irVistaListadoClientesDescartar.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(irVistaListadoClientesDescartar)
+            val irVistaVerCliente = Intent(this, VerClienteActivity::class.java)
+            irVistaVerCliente.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(irVistaVerCliente)
         }
 
         val btnToListadoClientesMenu = findViewById<Button>(R.id.activity_editar_cliente_btn_clientes)
