@@ -10,21 +10,26 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="8pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/activity_ver_cita_tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Datos cita"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt">
             android:id="@+id/activity_ver_cita_til_nombres_apellidos"
 
             <com.google.android.material.textfield.TextInputEditText
@@ -37,7 +42,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt">
             android:id="@+id/activity_ver_cita_til_categoria"
 
             <com.google.android.material.textfield.TextInputEditText
@@ -49,7 +55,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt">
             android:id="@+id/activity_ver_cita_til_tipo_servicio"
 
             <com.google.android.material.textfield.TextInputEditText
@@ -61,7 +68,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt">
             android:id="@+id/activity_ver_cita_til_fecha_hora"
 
             <com.google.android.material.textfield.TextInputEditText
@@ -85,6 +93,7 @@
                     android:id="@+id/activity_ver_cita_btn_editar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Editar" />
 
@@ -92,6 +101,7 @@
                     android:id="@+id/activity_ver_cita_btn_eliminar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Eliminar" />
             </LinearLayout>
@@ -111,6 +121,7 @@
                     android:id="@+id/activity_ver_cita_btn_citas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Citas" />
 
@@ -118,6 +129,7 @@
                     android:id="@+id/activity_ver_cita_btn_agregar_cita"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Agregar cita" />
 
@@ -125,6 +137,7 @@
                     android:id="@+id/activity_ver_cita_btn_clientes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8pt"
                     android:layout_weight="1"
                     android:text="Clientes" />
             </LinearLayout>
