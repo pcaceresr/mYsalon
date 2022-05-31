@@ -17,7 +17,7 @@
             android:name=".AgregarCitaActivity"
             android:exported="false" />
         <activity
-            android:name=".VistaAgendaActivity"
+            android:name=".EditarCitaActivity"
             android:exported="true" />
         <activity
             android:name=".RegistroActivity"
