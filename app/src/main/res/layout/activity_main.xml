@@ -40,7 +40,7 @@
                 android:id="@+id/textView26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Clientes"
+                android:text="Agenda Citas Clientes"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -65,7 +65,7 @@
                     android:text="8:00" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/activity_main_agenta_Citas_tv_Cliente1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -234,11 +234,11 @@
                 android:text="Citas" />
 
             <Button
-                android:id="@+id/activity_main_btn_anadir"
+                android:id="@+id/activity_main_btn_agregar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Añadir Cita" />
+                android:text="Agregar Cita" />
 
             <Button
                 android:id="@+id/activity_main_btn_clientes"

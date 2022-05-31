@@ -18,5 +18,12 @@ val btnToIngreso = findViewById<Button>(R.id.activity_bienvenido_btn_ingresar)
             startActivity(irVistaIngreso)
         }
 
+        val btnToRegistro = findViewById<Button>(R.id.activity_bienvenido_btn_registo)
+        btnToRegistro.setOnClickListener {
+            val irVistaIngresoRegistro = Intent(this, RegistroActivity::class.java)
+            irVistaIngresoRegistro.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(irVistaIngresoRegistro)
+        }
+
     }
 }

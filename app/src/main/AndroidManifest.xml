@@ -14,17 +14,26 @@
         android:theme="@style/Theme.MYsalon"
         tools:targetApi="31">
         <activity
-            android:name=".VistaAgendaActivity"
+            android:name=".AgregarCitaActivity"
             android:exported="false" />
+        <activity
+            android:name=".VistaAgendaActivity"
+            android:exported="true" />
         <activity
             android:name=".RegistroActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".BienvenidoActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".IngresoActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".EditarClienteActivity"
             android:exported="true" />
@@ -39,13 +48,7 @@
             android:exported="true" />
         <activity
             android:name=".ListadoClientesActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
