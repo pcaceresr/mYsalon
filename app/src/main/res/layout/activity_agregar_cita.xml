@@ -29,8 +29,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt">
-            android:id="@+id/activity_agregar_cita_til_nombres_apellidos"
+            android:layout_marginTop="8pt"
+            android:id="@+id/activity_agregar_cita_til_nombres_apellidos">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -43,8 +43,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt">
-            android:id="@+id/activity_agregar_cita_til_categoria"
+            android:layout_marginTop="8pt"
+            android:id="@+id/activity_agregar_cita_til_categoria">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -56,8 +56,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt">
-            android:id="@+id/activity_agregar_cita_til_tipo_servicio"
+            android:layout_marginTop="8pt"
+            android:id="@+id/activity_agregar_cita_til_tipo_servicio">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -69,8 +69,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt">
-            android:id="@+id/activity_agregar_cita_til_fecha_hora"
+            android:layout_marginTop="8pt"
+            android:id="@+id/activity_agregar_cita_til_fecha_hora">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

@@ -4,11 +4,26 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.google.android.material.textfield.TextInputLayout
 
 class EditarCitaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_cita)
+
+        val btnToGuardar = findViewById<Button>(R.id.activity_editar_cita_btn_guardar)
+        val tilNombresApellidos =findViewById<TextInputLayout>(R.id.activity_editar_cita_til_nombres_apellidos)
+        val tilCategoria =findViewById<TextInputLayout>(R.id.activity_editar_cita_til_categoria)
+        val tilTipoServicio =findViewById<TextInputLayout>(R.id.activity_editar_cita_til_tipo_servicio)
+        val tilFechaHora =findViewById<TextInputLayout>(R.id.activity_editar_cita_til_fecha_hora)
+
+
+
+        btnToGuardar .setOnClickListener {
+            val irVistaMain = Intent(this, MainActivity::class.java)
+            irVistaMain.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(irVistaMain)
+        }
 
         val btnToListadoClientesMenu = findViewById<Button>(R.id.activity_editar_cita_btn_clientes)
 
@@ -17,13 +32,6 @@ class EditarCitaActivity : AppCompatActivity() {
             startActivity(irVistaListadoClientesMenu)
         }
 
-        val btnToGuardar = findViewById<Button>(R.id.activity_editar_cita_btn_guardar)
-
-        btnToGuardar .setOnClickListener {
-            val irVistaMain = Intent(this, MainActivity::class.java)
-            irVistaMain.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(irVistaMain)
-        }
 
         val btnToDescartar = findViewById<Button>(R.id.activity_editar_cita_btn_descartar)
 

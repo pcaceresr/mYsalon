@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputLayout
 
 class AgregarClienteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,6 +13,12 @@ class AgregarClienteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_agregar_cliente)
 
         val btnToListadoClientes = findViewById<Button>(R.id.activity_agregar_cliente_btn_guardar)
+
+        val tilNombresApellidos =findViewById<TextInputLayout>(R.id.activity_agregar_cliente_til_nombres_apellidos)
+        val tilTelefono =findViewById<TextInputLayout>(R.id.activity_agregar_cliente_til_telefono)
+        val tilEmail =findViewById<TextInputLayout>(R.id.activity_agregar_cliente_til_email)
+        val tilCumpleanos =findViewById<TextInputLayout>(R.id.activity_agregar_cliente_til_cumpleanos)
+
 
         btnToListadoClientes.setOnClickListener {
             val irVistaListadoClientes = Intent(this, ListadoClientesActivity::class.java)
