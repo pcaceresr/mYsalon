@@ -28,8 +28,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt">
-            android:id="@+id/activity_agregar_cliente_til_nombres_apellidos"
+            android:layout_marginTop="8pt"
+            android:id="@+id/activity_agregar_cliente_til_nombres_apellidos">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -42,8 +42,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt">
-            android:id="@+id/activity_agregar_cliente_til_telefono"
+            android:layout_marginTop="8pt"
+            android:id="@+id/activity_agregar_cliente_til_telefono">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -55,15 +55,29 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt">
-            android:id="@+id/activity_agregar_cliente_til_correo"
+            android:layout_marginTop="8pt"
+            android:id="@+id/activity_agregar_cliente_til_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Correo electónico"
+                android:hint="Email"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8pt"
+            android:layout_marginBottom="8pt"
+            android:id="@+id/activity_agregar_cliente_til_cumpleanos">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fecha de cumpleaños (sólo día y mes)" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

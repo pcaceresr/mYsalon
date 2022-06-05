@@ -17,24 +17,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrese sus datos"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8pt">
-            android:id="@+id/activity_ingreso_til_usuario"
+            android:layout_marginTop="16pt"
+            android:layout_marginBottom="8pt"
+            android:id="@+id/activity_ingreso_til_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Usuario" />
+                android:hint="Email" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="32pt">
-            android:id="@+id/activity_ingreso_til_password"
+            android:layout_marginBottom="32pt"
+            android:id="@+id/activity_ingreso_til_password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

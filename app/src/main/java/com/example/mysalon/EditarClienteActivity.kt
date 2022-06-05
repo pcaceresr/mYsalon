@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.google.android.material.textfield.TextInputLayout
 
 class EditarClienteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,6 +12,12 @@ class EditarClienteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_editar_cliente)
 
         val btnToListadoClientesGuardar = findViewById<Button>(R.id.activity_editar_cliente_btn_guardar)
+        val tilNombresApellidos =findViewById<TextInputLayout>(R.id.activity_editar_cliente_til_nombres_apellidos)
+        val tilTelefono =findViewById<TextInputLayout>(R.id.activity_editar_cliente_til_telefono)
+        val tilEmail =findViewById<TextInputLayout>(R.id.activity_editar_cliente_til_email)
+        val tilCumpleanos =findViewById<TextInputLayout>(R.id.activity_editar_cliente_til_cumpleanos)
+
+
 
         btnToListadoClientesGuardar.setOnClickListener {
             val irVistaListadoClientesGuardar = Intent(this, ListadoClientesActivity::class.java)
