@@ -33,6 +33,7 @@ class EditarCitaActivity : AppCompatActivity() {
 
             val nombresApellidosValid = TilValidator(tilNombresApellidos)
                 .required()
+                .validarNombre()
                 .isValid()
 
             val categoriaValid = TilValidator(tilCategoria)

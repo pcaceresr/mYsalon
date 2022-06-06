@@ -31,10 +31,12 @@ class RegistroActivity : AppCompatActivity() {
 
             val nombreValid = TilValidator(tilNombre)
                 .required()
+                .validarNombre()
                 .isValid()
 
             val apellidosValid = TilValidator(tilApellidos)
                 .required()
+                .validarNombre()
                 .isValid()
 
             val nombreSalonValid = TilValidator(tilNombreSalon)
