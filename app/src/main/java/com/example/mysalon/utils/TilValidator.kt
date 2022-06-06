@@ -2,20 +2,21 @@ package com.example.mysalon.utils
 
 import android.util.Patterns
 import com.google.android.material.textfield.TextInputLayout
-import org.intellij.lang.annotations.Pattern
+import java.util.regex.Pattern
 
-class TilValidator constructor(til: TextInputLayout){
+
+class TilValidator constructor(til: TextInputLayout) {
     private val til: TextInputLayout = til
     private val value: String = til.editText?.text.toString()
     private var required: Boolean = false
     private var invalid: Boolean = false
 
 
-    private fun setError(invalid: Boolean, message: String){
-        if (invalid){
+    private fun setError(invalid: Boolean, message: String) {
+        if (invalid) {
             this.invalid = true
             til.error = message
-        }else{
+        } else {
             til.error = null
             til.isErrorEnabled = false
         }
@@ -41,7 +42,27 @@ class TilValidator constructor(til: TextInputLayout){
         return this
     }
 
-    fun isValid() : Boolean {
+    fun validarNombre(): TilValidator {
+        if (mustValidate()) {
+            val patron = Pattern.compile("^[a-zA-Z]+$")
+            val invalidField = !patron.matcher(this.value)
+                .matches() || this.value.length > 30 || this.value.length < 2
+            this.setError(invalidField, "Ingrese un nombre válido" )
+        }
+        return this
+    }
+
+    fun validarTelefono(): TilValidator {
+        if (mustValidate()) {
+            val patron = Pattern.compile("\\A(\\+?56)?(\\s?)(0?9)(\\s?)[9876543]\\d{7}\\z")
+            val invalidField = !patron.matcher(this.value)
+                .matches() || this.value.length > 13
+            this.setError(invalidField, "Ingrese número de teléfono válido")
+        }
+        return this
+    }
+
+    fun isValid(): Boolean {
         return !this.invalid
     }
 

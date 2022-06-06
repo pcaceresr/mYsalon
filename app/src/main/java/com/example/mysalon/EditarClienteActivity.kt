@@ -34,10 +34,12 @@ class EditarClienteActivity : AppCompatActivity() {
 
             val nombresApellidosValid = TilValidator(tilNombresApellidos)
                 .required()
+                .validarNombre()
                 .isValid()
 
             val telefonoValid = TilValidator(tilTelefono)
                 .required()
+                .validarTelefono()
                 .isValid()
 
             val emailValid = TilValidator(tilEmail)
