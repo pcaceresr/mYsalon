@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.example.mysalon.controllers.AuthController
 import com.example.mysalon.utils.TilValidator
 import com.google.android.material.textfield.TextInputLayout
 
@@ -18,8 +19,8 @@ class IngresoActivity : AppCompatActivity() {
         val tilPassword = findViewById<TextInputLayout>(R.id.activity_ingreso_til_password)
 
         btnToIngresar.setOnClickListener {
-            val email = tilEmail.editText?.text
-            val password = tilPassword.editText?.text
+            val email = tilEmail.editText?.text.toString()
+            val password = tilPassword.editText?.text.toString()
 
             val emailValid = TilValidator(tilEmail)
                 .required()
@@ -30,12 +31,14 @@ class IngresoActivity : AppCompatActivity() {
                 .required()
                 .isValid()
 
-            if (emailValid && passwordValid){
-                val irVistaMain = Intent(this, MainActivity::class.java)
+            if (emailValid && passwordValid) {
+                val controller = AuthController(this).login(email, password)
+
+                val irVistaMain = Intent(this, AgendaActivity::class.java)
                 irVistaMain.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(irVistaMain)
-            }else{
-                Toast.makeText(this, "Campos inválidos",Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }
 
         }

@@ -35,20 +35,24 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_ingreso_til_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="32pt"
-            android:id="@+id/activity_ingreso_til_password">
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Pasword" />
+                android:hint="Pasword"
+                android:inputType="textPassword"
+                android:password="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
