@@ -58,7 +58,7 @@ class AgregarCitaActivity : AppCompatActivity() {
 
         val btnToCitasMenu = findViewById<Button>(R.id.activity_agregar_cita_btn_citas)
         btnToCitasMenu.setOnClickListener {
-            val irVistaMainCitas = Intent(this, MainActivity::class.java)
+            val irVistaMainCitas = Intent(this, AgendaActivity::class.java)
             irVistaMainCitas.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(irVistaMainCitas)
         }

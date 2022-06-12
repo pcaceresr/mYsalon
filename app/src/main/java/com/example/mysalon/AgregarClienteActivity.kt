@@ -76,7 +76,7 @@ class AgregarClienteActivity : AppCompatActivity() {
         val btnToListadoCitasMenu = findViewById<Button>(R.id.activity_agregar_cliente_btn_citas)
 
         btnToListadoCitasMenu.setOnClickListener {
-            val irVistaMainMenu = Intent(this, MainActivity::class.java)
+            val irVistaMainMenu = Intent(this, AgendaActivity::class.java)
             irVistaMainMenu.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(irVistaMainMenu)
         }

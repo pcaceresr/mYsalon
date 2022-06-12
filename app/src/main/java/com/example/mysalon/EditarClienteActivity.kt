@@ -22,8 +22,6 @@ class EditarClienteActivity : AppCompatActivity() {
         val tilCumpleanos =
             findViewById<TextInputLayout>(R.id.activity_editar_cliente_til_cumpleanos)
 
-
-
         btnToListadoClientesGuardar.setOnClickListener {
 
             val nombresApellidos = tilNombresApellidos.editText?.text
@@ -84,7 +82,7 @@ class EditarClienteActivity : AppCompatActivity() {
         val btnToListadoCitasMenu = findViewById<Button>(R.id.activity_editar_cliente_btn_citas)
 
         btnToListadoCitasMenu.setOnClickListener {
-            val irVistaMainMenu = Intent(this, MainActivity::class.java)
+            val irVistaMainMenu = Intent(this, AgendaActivity::class.java)
             irVistaMainMenu.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(irVistaMainMenu)
         }

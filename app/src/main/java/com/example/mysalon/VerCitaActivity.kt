@@ -29,7 +29,7 @@ class VerCitaActivity : AppCompatActivity() {
         val btnToEliminar = findViewById<Button>(R.id.activity_ver_cita_btn_eliminar)
 
         btnToEliminar.setOnClickListener {
-            val irVistaMain = Intent(this, MainActivity::class.java)
+            val irVistaMain = Intent(this, AgendaActivity::class.java)
             irVistaMain.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(irVistaMain)
         }
@@ -37,7 +37,7 @@ class VerCitaActivity : AppCompatActivity() {
         val btnToListadoCitasMenu = findViewById<Button>(R.id.activity_ver_cita_btn_citas)
 
         btnToListadoCitasMenu.setOnClickListener {
-            val irVistaMainMenu = Intent(this, MainActivity::class.java)
+            val irVistaMainMenu = Intent(this, AgendaActivity::class.java)
             irVistaMainMenu .flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(irVistaMainMenu )
         }
