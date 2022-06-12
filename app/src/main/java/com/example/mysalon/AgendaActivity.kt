@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mysalon.controllers.AgendaController
+import com.example.mysalon.ui.AgendaAdapter
 
 class AgendaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,16 +29,25 @@ class AgendaActivity : AppCompatActivity() {
             startActivity(irVistaListadoClientes)
         }
 
-        val tvToVerCita = findViewById<TextView>(R.id.activity_agenda_Citas_tv_Cliente1)
+        /*val tvToVerCita = findViewById<TextView>(R.id.activity_agenda_Citas_tv_Cliente1)
         tvToVerCita.setOnClickListener {
             val irVistaVerCita = Intent(this, VerCitaActivity::class.java)
             irVistaVerCita.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(irVistaVerCita)
-        }
+            star*/
 
-        val allTask = AgendaController(this ).getAll()
+        val lvAgenda = findViewById<ListView>(R.id.activity_agenda_lv_agenda)
 
-        Toast.makeText(this, allTask[2].title, Toast.LENGTH_SHORT).show()
+        val allTask = AgendaController(this).getAll()
+        val adapter = AgendaAdapter(this, allTask)
+
+        lvAgenda.adapter = adapter
+
+        lvAgenda.setOnItemClickListener { adapterView, view, i, l ->
+            run {
+            val agenda = allTask[i]
+            Toast.makeText(view.context, agenda.title,Toast.LENGTH_SHORT).show()
+
+        }}
 
     }
 }
