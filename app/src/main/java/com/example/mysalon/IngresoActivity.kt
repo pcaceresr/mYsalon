@@ -33,10 +33,6 @@ class IngresoActivity : AppCompatActivity() {
 
             if (emailValid && passwordValid) {
                 val controller = AuthController(this).login(email, password)
-
-                val irVistaMain = Intent(this, AgendaActivity::class.java)
-                irVistaMain.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                startActivity(irVistaMain)
             } else {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }

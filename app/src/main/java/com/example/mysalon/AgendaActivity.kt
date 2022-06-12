@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import com.example.mysalon.controllers.AgendaController
 
 class AgendaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +33,10 @@ class AgendaActivity : AppCompatActivity() {
             irVistaVerCita.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(irVistaVerCita)
         }
+
+        val allTask = AgendaController(this ).getAll()
+
+        Toast.makeText(this, allTask[2].title, Toast.LENGTH_SHORT).show()
 
     }
 }
