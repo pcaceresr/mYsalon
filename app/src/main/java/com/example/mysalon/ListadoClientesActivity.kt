@@ -1,12 +1,13 @@
 package com.example.mysalon
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ListView
 import android.widget.Toast
-import com.example.mysalon.R.id.activity_listado_clientes_tv_title_cliente1
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mysalon.controllers.ClientesController
+import com.example.mysalon.ui.ClientesAdapter
 
 class ListadoClientesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,12 +22,27 @@ class ListadoClientesActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val tvToVerCliente =
+       /* val tvToVerCliente =
             findViewById<TextView>(activity_listado_clientes_tv_title_cliente1)
 
         tvToVerCliente.setOnClickListener {
             val intent1 = Intent(this, VerClienteActivity::class.java)
             startActivity(intent1)
+        }*/
+
+        val lvClientes = findViewById<ListView>(R.id.activity_clietes_lv_clientes)
+
+        val obtnerCliente = ClientesController(this).obtenerCliente()
+        val adapter = ClientesAdapter(this, obtnerCliente)
+
+        lvClientes.adapter = adapter
+
+        lvClientes.setOnItemClickListener { adapterView, view, i, l ->
+            run {
+                val clientes = obtnerCliente[i]
+                Toast.makeText(view.context, clientes.title, Toast.LENGTH_SHORT).show()
+
+            }
         }
 
 

@@ -54,77 +54,10 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente1"
+            <ListView
+                android:id="@+id/activity_clietes_lv_clientes"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Ana Román"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Leticia Fernández"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Marcela Romero"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Ruben Espinoza"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Ricardo Muñoz"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Adriana Castillo"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Gabriela Santander"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/activity_listado_clientes_tv_title_cliente9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8pt"
-                android:paddingLeft="8pt"
-                android:text="- Rodrigo Fuentes"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:layout_height="423dp" />
 
         </LinearLayout>
 
