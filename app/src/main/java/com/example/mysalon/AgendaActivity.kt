@@ -15,6 +15,13 @@ class AgendaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agenda)
 
+        val btnToSalir = findViewById<Button>(R.id.activity_agenda_btn_salir)
+        btnToSalir.setOnClickListener {
+            val irVistaIngreso = Intent(this, IngresoActivity::class.java)
+            irVistaIngreso.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(irVistaIngreso)
+        }
+
         val btnToAgregarCita = findViewById<Button>(R.id.activity_agenda_btn_agregar)
         btnToAgregarCita.setOnClickListener {
             val irVistaAgregarCita = Intent(this, AgregarCitaActivity::class.java)
@@ -28,6 +35,7 @@ class AgendaActivity : AppCompatActivity() {
             irVistaListadoClientes.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(irVistaListadoClientes)
         }
+
 
         /*val tvToVerCita = findViewById<TextView>(R.id.activity_agenda_Citas_tv_Cliente1)
         tvToVerCita.setOnClickListener {
@@ -44,10 +52,11 @@ class AgendaActivity : AppCompatActivity() {
 
         lvAgenda.setOnItemClickListener { adapterView, view, i, l ->
             run {
-            val agenda = allTask[i]
-            Toast.makeText(view.context, agenda.title,Toast.LENGTH_SHORT).show()
+                val agenda = allTask[i]
+                Toast.makeText(view.context, agenda.title, Toast.LENGTH_SHORT).show()
 
-        }}
+            }
+        }
 
     }
 }
