@@ -47,11 +47,11 @@ class AgregarCitaActivity : AppCompatActivity() {
 
         btnToGuardar.setOnClickListener {
 
-            val nombresApellidos = tilNombresApellidos.editText?.text
+            val nombresApellidos = tilNombresApellidos.editText?.text.toString()
             val categorias = spnCategoria.selectedItem.toString()
             val tipoServicio = spnTipoServicio.selectedItem.toString()
-            val fecha = tilFecha.editText?.text
-            val hora = tilHora.editText?.text
+            val fecha = tilFecha.editText?.text.toString()
+            val hora = tilHora.editText?.text.toString()
 
             val nombresApellidosValid = TilValidator(tilNombresApellidos)
                 .required()
@@ -60,12 +60,12 @@ class AgregarCitaActivity : AppCompatActivity() {
 
             val fechaValid = TilValidator(tilFecha)
                 .required()
+                .dateBefore(Date())
                 .isValid()
 
             val horaValid = TilValidator(tilHora)
                 .required()
                 .isValid()
-
 
             Toast.makeText(this, categorias, Toast.LENGTH_SHORT).show()
 

@@ -1,12 +1,12 @@
 package com.example.mysalon
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
+import com.example.mysalon.controllers.AuthController
 import com.example.mysalon.utils.TilValidator
 import com.example.mysalon.utils.showDatePickerDialog
 import com.google.android.material.textfield.TextInputLayout
@@ -41,11 +41,11 @@ class RegistroActivity : AppCompatActivity() {
         }
 
         btnToRegistrarse.setOnClickListener {
-            val nombre = tilNombre.editText?.text
-            val apellidos = tilApellidos.editText?.text
-            val nombreSalon = tilNombreSalon.editText?.text
-            val email = tilEmail.editText?.text
-            val password = tilPassword.editText?.text
+            val nombre = tilNombre.editText?.text.toString()
+            val apellidos = tilApellidos.editText?.text.toString()
+            val nombreSalon = tilNombreSalon.editText?.text.toString()
+            val email = tilEmail.editText?.text.toString()
+            val password = tilPassword.editText?.text.toString()
             val gender = spnGender.selectedItem.toString()
             val birth = tilBirth.editText?.text.toString()
 
@@ -78,15 +78,23 @@ class RegistroActivity : AppCompatActivity() {
                 .isValid()
 
 
-            if (nombreValid && apellidosValid && nombreSalonValid && emailValid && passwordValid) {
-                val irVistaIngreso = Intent(this, IngresoActivity::class.java)
-                irVistaIngreso.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                startActivity(irVistaIngreso)
+            if (nombreValid && apellidosValid && nombreSalonValid && emailValid && passwordValid && birthValid) {
+                AuthController(this).registro(
+                    nombre,
+                    apellidos,
+                    nombreSalon,
+                    email,
+                    password,
+                    birth
+                    )
+                Toast.makeText(this, "Cuenta registrada exitosamentes", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }
 
         }
 
-    }
+        }
+
+
 }
