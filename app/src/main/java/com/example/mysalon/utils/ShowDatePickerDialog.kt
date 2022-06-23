@@ -11,4 +11,5 @@ fun showDatePickerDialog(activity: AppCompatActivity, til: TextInputLayout, init
         til.editText?.setText(String.format("%d-%02d-%02d", year, (month + 1), day))
     }
     val fragment = DatePickerFragment(listener, initialDate)
-    fragment.show(activity.supportFragmentManager, "datePicker")}
+    fragment.show(activity.supportFragmentManager, "datePicker")
+}
