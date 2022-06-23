@@ -40,31 +40,33 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <TextView
+            android:id="@+id/activity_agregar_categoria_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8pt"
-            android:id="@+id/activity_agregar_cita_til_categoria">
+            android:text="Categoría"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Categoria"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <Spinner
+            android:id="@+id/activity_agregar_cita_spn_categoria"
+            android:layout_width="match_parent"
+            android:layout_marginTop="4pt"
+            android:layout_height="48dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <TextView
+            android:id="@+id/activity_agregar_tipo_servicio_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8pt"
-            android:id="@+id/activity_agregar_cita_til_tipo_servicio">
+            android:layout_marginTop="4pt"
+            android:text="Tipo deservicio"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tipo de servicio"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <Spinner
+            android:id="@+id/activity_agregar_cita_spn_tipo_servicio"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8pt"
+            android:layout_height="48dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

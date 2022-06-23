@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipoServicio_array">
+        <item>Corte de pelo</item>
+        <item>Tintura</item>
+        <item>Masaje Relajante</item>
+        <item>Masaje Descontracturante</item>
+        <item>Manicure fantasía</item>
+        <item>Manicure tradicional</item>
+        <item>Manicure permanente</item>
+        <item>Pedicure clínico</item>
+        <item>Pedicure estético</item>
+        <item>Maquillaje tradicional</item>
+        <item>Maquijalle novia</item>
+        <item>Maquijalle fiesta</item>
+        <item>Exfoliación facial</item>
+        <item>Limpiesa facial</item>
+        <item>Mascarilla facial</item>
+        <item>Depilación tradicional</item>
+        <item>Depilación láser</item>
+    </string-array>
+</resources>
