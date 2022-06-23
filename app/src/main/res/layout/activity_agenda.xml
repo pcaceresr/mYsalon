@@ -58,7 +58,7 @@
             <ListView
                 android:id="@+id/activity_agenda_lv_agenda"
                 android:layout_width="400dp"
-                android:layout_height="425dp" />
+                android:layout_height="348dp" />
 
         </LinearLayout>
 

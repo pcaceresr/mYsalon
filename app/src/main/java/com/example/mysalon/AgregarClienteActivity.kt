@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.mysalon.controllers.AuthController
 import com.example.mysalon.utils.TilValidator
+import com.example.mysalon.utils.showDatePickerDialog
 import com.google.android.material.textfield.TextInputLayout
+import java.util.*
 
 class AgregarClienteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,14 +55,17 @@ class AgregarClienteActivity : AppCompatActivity() {
                 .required()
                 .isValid()
 
-            if (nombresApellidosValid && telefonoValid && emailValid && cumpleanosValid) {
 
-                val irVistaListadoClientes = Intent(this, ListadoClientesActivity::class.java)
-                irVistaListadoClientes.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                startActivity(irVistaListadoClientes)
+            if (nombresApellidosValid && telefonoValid && emailValid && cumpleanosValid) {
+                AuthController(this).agregarCliente(
+                    nombresApellidos, telefono, email, cumpleanos)
             } else {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }
+
+            tilCumpleanos.editText?.setOnClickListener({ _ ->
+                showDatePickerDialog(this, tilCumpleanos, Date())
+            })
 
 
         }
