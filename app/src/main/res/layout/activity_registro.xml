@@ -10,8 +10,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="20pt"
-        android:paddingRight="20pt"
+        android:paddingLeft="16pt"
+        android:paddingRight="16pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,11 +26,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_registro_til_nombre"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8pt"
-            android:layout_marginBottom="8pt"
-            android:id="@+id/activity_registro_til_nombre">
+            android:layout_marginTop="4pt"
+            android:layout_marginBottom="4pt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -39,10 +39,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_registro_til_apellidos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8pt"
-            android:id="@+id/activity_registro_til_apellidos">
+            android:layout_marginBottom="4pt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -51,10 +51,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_registro_til_nombre_salon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8pt"
-            android:id="@+id/activity_registro_til_nombre_salon">
+            android:layout_marginBottom="4pt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -74,14 +74,14 @@
         <Spinner
             android:id="@+id/activity_register_spn_gender"
             android:layout_width="match_parent"
-            android:layout_marginBottom="8pt"
-            android:layout_height="48dp" />
+            android:layout_height="48dp"
+            android:layout_marginBottom="4pt" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_registro_til_birth"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8pt"
-            android:id="@+id/activity_registro_til_birth">
+            android:layout_marginBottom="4pt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -93,10 +93,10 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_registro_til_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8pt"
-            android:id="@+id/activity_registro_til_email">
+            android:layout_marginBottom="4pt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -108,7 +108,7 @@
             android:id="@+id/activity_registro_til_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8pt">
+            android:layout_marginBottom="4pt">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

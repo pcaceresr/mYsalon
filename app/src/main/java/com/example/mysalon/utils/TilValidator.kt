@@ -97,4 +97,5 @@ class TilValidator constructor(til: TextInputLayout) {
         }
         return this
     }
+
 }

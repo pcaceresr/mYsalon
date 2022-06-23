@@ -53,6 +53,7 @@ class AgregarClienteActivity : AppCompatActivity() {
 
             val cumpleanosValid = TilValidator(tilCumpleanos)
                 .required()
+                .dateBefore(Date())
                 .isValid()
 
 
@@ -63,9 +64,9 @@ class AgregarClienteActivity : AppCompatActivity() {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }
 
-            tilCumpleanos.editText?.setOnClickListener({ _ ->
+            tilCumpleanos.editText?.setOnClickListener{ _ ->
                 showDatePickerDialog(this, tilCumpleanos, Date())
-            })
+            }
 
 
         }
