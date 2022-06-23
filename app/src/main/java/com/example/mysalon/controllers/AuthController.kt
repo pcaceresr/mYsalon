@@ -1,5 +1,6 @@
 package com.example.mysalon.controllers
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.text.Editable
@@ -16,6 +17,7 @@ class AuthController constructor(ctx: Context) {
             Toast.makeText(this.ctx, "Bienvenido(a)", Toast.LENGTH_SHORT).show()
             val intent = Intent(this.ctx, AgendaActivity::class.java)
             this.ctx.startActivity(intent)
+            (this.ctx as Activity).finish()
         } else {
             Toast.makeText(this.ctx, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
         }
