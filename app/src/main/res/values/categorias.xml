@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categorias_array">
+        <item>Peluquería</item>
+        <item>Masajes</item>
+        <item>Manicure</item>
+        <item>Pedicure</item>
+        <item>Maquillaje</item>
+        <item>Tratamientos Faciales</item>
+        <item>Depilación</item>
+    </string-array>
+</resources>
