@@ -7,9 +7,12 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
 import com.example.mysalon.controllers.AuthController
+import com.example.mysalon.models.User
 import com.example.mysalon.utils.TilValidator
 import com.example.mysalon.utils.showDatePickerDialog
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 class RegistroActivity : AppCompatActivity() {
@@ -44,10 +47,11 @@ class RegistroActivity : AppCompatActivity() {
             val nombre = tilNombre.editText?.text.toString()
             val apellidos = tilApellidos.editText?.text.toString()
             val nombreSalon = tilNombreSalon.editText?.text.toString()
-            val email = tilEmail.editText?.text.toString()
-            val password = tilPassword.editText?.text.toString()
             val gender = spnGender.selectedItem.toString()
             val birth = tilBirth.editText?.text.toString()
+            val email = tilEmail.editText?.text.toString()
+            val password = tilPassword.editText?.text.toString()
+
 
             val nombreValid = TilValidator(tilNombre)
                 .required()
@@ -63,6 +67,11 @@ class RegistroActivity : AppCompatActivity() {
                 .required()
                 .isValid()
 
+            val birthValid = TilValidator(tilBirth)
+                .required()
+                .dateBefore(Date())
+                .isValid()
+
             val emailValid = TilValidator(tilEmail)
                 .required()
                 .email()
@@ -72,21 +81,18 @@ class RegistroActivity : AppCompatActivity() {
                 .required()
                 .isValid()
 
-            val birthValid = TilValidator(tilBirth)
-                .required()
-                .dateBefore(Date())
-                .isValid()
-
-
             if (nombreValid && apellidosValid && nombreSalonValid && emailValid && passwordValid && birthValid) {
-                AuthController(this).registro(
-                    nombre,
-                    apellidos,
-                    nombreSalon,
-                    email,
-                    password,
-                    birth
-                    )
+                val user = User(
+                    id = null,
+                    nombre = nombre,
+                    apellidos = apellidos,
+                    nombreSalon = nombreSalon,
+                    gender = gender,
+                    birth = SimpleDateFormat("yyy-MM-dd").parse(birth),
+                    email = email,
+                    password = password
+                )
+                AuthController(this).registro(user)
                 Toast.makeText(this, "Cuenta registrada exitosamentes", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
@@ -94,7 +100,7 @@ class RegistroActivity : AppCompatActivity() {
 
         }
 
-        }
+    }
 
 
 }

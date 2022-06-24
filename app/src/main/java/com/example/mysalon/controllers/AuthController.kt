@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.mysalon.AgendaActivity
 import com.example.mysalon.IngresoActivity
 import com.example.mysalon.ListadoClientesActivity
+import com.example.mysalon.models.User
 
 class AuthController constructor(ctx: Context) {
     private val ctx = ctx
@@ -23,14 +24,7 @@ class AuthController constructor(ctx: Context) {
         }
     }
 
-    fun registro(
-        nombre: String,
-        apellidos: String,
-        nombreSalon: String,
-        email: String,
-        password: String,
-        birth: String)
-    {
+    fun registro( user: User){
         Toast.makeText(this.ctx, "Cuenta registrada", Toast.LENGTH_SHORT).show()
         val intent = Intent(this.ctx, IngresoActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
