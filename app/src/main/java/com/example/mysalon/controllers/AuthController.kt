@@ -5,10 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.text.Editable
 import android.widget.Toast
+import androidx.room.Room
 import com.example.mysalon.AgendaActivity
 import com.example.mysalon.IngresoActivity
 import com.example.mysalon.ListadoClientesActivity
+import com.example.mysalon.lib.AppDatabase
 import com.example.mysalon.models.User
+import com.example.mysalon.models.UserEntity
+import java.util.*
 
 class AuthController constructor(ctx: Context) {
     private val ctx = ctx
@@ -25,6 +29,28 @@ class AuthController constructor(ctx: Context) {
     }
 
     fun registro( user: User){
+        val userEntity = UserEntity(
+            id = null,
+            nombre = user.nombre,
+            apellidos = user.apellidos,
+            nombreSalon = user.nombreSalon,
+            gender = user.gender,
+            birth = user.birth,
+            email = user.email,
+            password = user.password
+        )
+
+        val db = Room.databaseBuilder(
+            ctx.applicationContext,
+            AppDatabase::class.java, "database-name"
+        )
+            .allowMainThreadQueries()
+            .build()
+
+        val dao = db.userDao()
+
+        dao.insert(userEntity)
+
         Toast.makeText(this.ctx, "Cuenta registrada", Toast.LENGTH_SHORT).show()
         val intent = Intent(this.ctx, IngresoActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
