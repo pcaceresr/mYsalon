@@ -32,6 +32,7 @@ class AuthController constructor(ctx: Context) {
 
         if (user == null) {
             Toast.makeText(this.ctx, INCORRECT_CREDENTIALS, Toast.LENGTH_SHORT).show()
+            return
         }
         if (BCrypt.checkpw(password, user.password)) {
             Toast.makeText(this.ctx, "Bienvenido(a) ${user.nombre}", Toast.LENGTH_SHORT).show()

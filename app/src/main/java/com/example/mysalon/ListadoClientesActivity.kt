@@ -6,7 +6,8 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mysalon.controllers.ClientesController
+import com.example.mysalon.controllers.ClienteController
+import com.example.mysalon.models.Cliente
 import com.example.mysalon.ui.ClientesAdapter
 
 class ListadoClientesActivity : AppCompatActivity() {
@@ -22,31 +23,37 @@ class ListadoClientesActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-       /* val tvToVerCliente =
-            findViewById<TextView>(activity_listado_clientes_tv_title_cliente1)
+        /* val tvToVerCliente =
+             findViewById<TextView>(activity_listado_clientes_tv_title_cliente1)
 
-        tvToVerCliente.setOnClickListener {
-            val intent1 = Intent(this, VerClienteActivity::class.java)
-            startActivity(intent1)
-        }*/
+         tvToVerCliente.setOnClickListener {
+             val intent1 = Intent(this, VerClienteActivity::class.java)
+             startActivity(intent1)
+         }*/
+        //consulto a la BD por los clientes del usuario conectado
+        val clientes = ClienteController(this).obtenerClientes()
+
+        //envio el listado de clientes al adaptador
+        val adapter = ClientesAdapter(this, clientes)
 
         val lvClientes = findViewById<ListView>(R.id.activity_clietes_lv_clientes)
-
-        val obtnerCliente = ClientesController(this).obtenerCliente()
-        val adapter = ClientesAdapter(this, obtnerCliente)
-
         lvClientes.adapter = adapter
 
+        //cuando se hace clic en un registro, se va a la vista verCliente
         lvClientes.setOnItemClickListener { adapterView, view, i, l ->
             run {
-                val clientes = obtnerCliente[i]
-                Toast.makeText(view.context, clientes.title, Toast.LENGTH_SHORT).show()
-
+                val clienteSeleccionado = clientes[i]
+                //mostrar pantalla
+                val irVistaVerCliente = Intent(this, VerClienteActivity::class.java)
+                irVistaVerCliente.putExtra("CLIENTE_SELECCIONADO", clienteSeleccionado)
+                irVistaVerCliente.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(irVistaVerCliente)
             }
         }
 
 
-        val btnToListadoAgregarCitaMenu = findViewById<Button>(R.id.activity_listado_clientes_btn_agregar_cita)
+        val btnToListadoAgregarCitaMenu =
+            findViewById<Button>(R.id.activity_listado_clientes_btn_agregar_cita)
 
         btnToListadoAgregarCitaMenu.setOnClickListener {
             val irVistaAgregarCitaMenu = Intent(this, AgregarCitaActivity::class.java)
@@ -58,8 +65,8 @@ class ListadoClientesActivity : AppCompatActivity() {
 
         btnToListadoCitasMenu.setOnClickListener {
             val irVistaMainMenu = Intent(this, AgendaActivity::class.java)
-            irVistaMainMenu .flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(irVistaMainMenu )
+            irVistaMainMenu.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(irVistaMainMenu)
         }
     }
 }
