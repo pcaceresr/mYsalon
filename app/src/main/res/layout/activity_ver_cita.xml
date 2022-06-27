@@ -95,7 +95,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8pt"
                     android:layout_weight="1"
-                    android:text="Editar" />
+                    android:text="Editar"
+                    android:visibility="visible" />
 
                 <Button
                     android:id="@+id/activity_ver_cita_btn_eliminar"

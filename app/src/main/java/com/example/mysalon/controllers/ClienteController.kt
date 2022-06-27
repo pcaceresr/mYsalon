@@ -64,7 +64,7 @@ class ClienteController constructor(ctx: Context, userId: Long = 0) {
                 id = c.id,
                 nombresApellidos = c.nombresApellidos,
                 telefono = c.telefono,
-                email = c.telefono,
+                email = c.email,
                 cumpleanos = c.cumpleanos,
                 done = c.done
             )
@@ -72,5 +72,29 @@ class ClienteController constructor(ctx: Context, userId: Long = 0) {
         }
 
         return clientes
+    }
+
+    fun eliminarCliente(cliente: Cliente){
+        if(cliente.id != null){
+            dao.delete(cliente.id)
+            Toast.makeText(this.ctx, "Cliente eliminado con exito", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+    fun editarCliente(cliente: Cliente) {
+        if(cliente.id != null){
+            val clienteEntity = ClienteEntity(
+                id = cliente.id,
+                nombresApellidos = cliente.nombresApellidos,
+                telefono = cliente.telefono,
+                email = cliente.email,
+                cumpleanos = cliente.cumpleanos,
+                done = cliente.done,
+                userId = userId
+            )
+            dao.update(clienteEntity)
+            Toast.makeText(this.ctx, "Cliente editado con exito", Toast.LENGTH_SHORT).show()
+        }
     }
 }
