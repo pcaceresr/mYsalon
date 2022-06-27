@@ -12,10 +12,10 @@ import com.example.mysalon.models.ClienteEntity
 @Dao
 interface ClienteDAO {
     @Query("SELECT * FROM clientes WHERE ` user_id` = :userId")
-    fun findByAll(userId: Long): ArrayList<List<ClienteEntity>>
+    fun findByAll(userId: Long): List<ClienteEntity>
 
    @Query("SELECT * FROM clientes WHERE id = :id ")
-    fun finById(id: Long)
+    fun finById(id: Long): ClienteEntity?
 
     @Insert
     fun insert(cita: ClienteEntity)

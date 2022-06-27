@@ -14,9 +14,8 @@ interface CitaDAO {
     fun findByAll(userId: Long): List<CitaEntity>
 
 
-    /*@Query("SELECT * FROM citas WHERE id = :id ")
-    fun finById(id: Long)*/
-
+    @Query("SELECT * FROM citas WHERE id = :id ")
+    fun finById(id: Long): CitaEntity?
     @Insert
     fun insert(cita: CitaEntity)
 

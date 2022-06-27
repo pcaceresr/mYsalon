@@ -12,6 +12,7 @@ data class ClienteEntity(
     @ColumnInfo(name = "nombresApellidos") val nommbresApellidos: String,
     val telefono: String,
     val email: String,
-    val cumpleanos: Date,
+    val cumpleanos: String,
+    val done: Boolean,
     @ColumnInfo(name = " user_id") val userId: Long
 )
