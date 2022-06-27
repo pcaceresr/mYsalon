@@ -8,21 +8,21 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.mysalon.R
-import com.example.mysalon.models.Clientes
+import com.example.mysalon.models.Cliente
 
-class ClientesAdapter(private val ctx: Context, private val misClientes: List<Clientes>) : BaseAdapter() {
+class ClientesAdapter(private val ctx: Context, private val clientes: List<Cliente>) : BaseAdapter() {
 
 
     override fun getCount(): Int {
-        return misClientes.size
+        return clientes.size
     }
 
-    override fun getItem(i: Int): Clientes {
-        return misClientes[i]
+    override fun getItem(i: Int): Cliente {
+        return clientes[i]
     }
 
     override fun getItemId(i: Int): Long {
-        return misClientes[i].id!!
+        return clientes[i].id!!
     }
 
     override fun getView(i: Int, view: View?, viewGroupt: ViewGroup?): View {
@@ -30,12 +30,11 @@ class ClientesAdapter(private val ctx: Context, private val misClientes: List<Cl
 
         val rowview = inflater.inflate(R.layout.item_lista, null)
 
-        val agenda = misClientes[i]
+        val cliente = clientes[i]
 
         val tvTitle = rowview.findViewById<TextView>(R.id.item_tv_title)
-
-        tvTitle.text = agenda.title
-
+        //se coloca el valor que se quiere mostrar
+        tvTitle.text = cliente.nombresApellidos
         return rowview
     }
 }

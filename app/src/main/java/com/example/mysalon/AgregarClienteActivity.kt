@@ -4,12 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import com.example.mysalon.controllers.AuthController
+import com.example.mysalon.controllers.ClienteController
+import com.example.mysalon.models.Cliente
 import com.example.mysalon.utils.TilValidator
 import com.example.mysalon.utils.showDatePickerDialog
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AgregarClienteActivity : AppCompatActivity() {
@@ -29,11 +30,10 @@ class AgregarClienteActivity : AppCompatActivity() {
 
         btnToListadoClientes.setOnClickListener {
 
-
-            val nombresApellidos = tilNombresApellidos.editText?.text
-            val telefono = tilTelefono.editText?.text
-            val email = tilEmail.editText?.text
-            val cumpleanos = tilCumpleanos.editText?.text
+            val nombresApellidos = tilNombresApellidos.editText?.text.toString()
+            val telefono = tilTelefono.editText?.text.toString()
+            val email = tilEmail.editText?.text.toString()
+            val cumpleanos = tilCumpleanos.editText?.text.toString()
 
 
             val nombresApellidosValid = TilValidator(tilNombresApellidos)
@@ -58,8 +58,16 @@ class AgregarClienteActivity : AppCompatActivity() {
 
 
             if (nombresApellidosValid && telefonoValid && emailValid && cumpleanosValid) {
-                AuthController(this).agregarCliente(
-                    nombresApellidos, telefono, email, cumpleanos)
+                val cliente = Cliente(
+                    id = null,
+                    nombresApellidos = nombresApellidos,
+                    telefono = telefono,
+                    email = email,
+                    cumpleanos = SimpleDateFormat("yyy-MM-dd").parse(cumpleanos)
+                )
+
+               ClienteController(this).agregarCliente(cliente)
+
             } else {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }
@@ -67,8 +75,6 @@ class AgregarClienteActivity : AppCompatActivity() {
             tilCumpleanos.editText?.setOnClickListener{ _ ->
                 showDatePickerDialog(this, tilCumpleanos, Date())
             }
-
-
         }
 
         val btnToListadoClientesMenu =

@@ -18,10 +18,10 @@ interface ClienteDAO {
     fun finById(id: Long): ClienteEntity?
 
     @Insert
-    fun insert(cita: ClienteEntity)
+    fun insert(cliente: ClienteEntity)
 
     @Update
-    fun update(cita: ClienteEntity)
+    fun update(cliente: ClienteEntity)
 
     @Query("DELETE FROM clientes WHERE id = :id")
     fun delete(id: Long)

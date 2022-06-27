@@ -1,9 +1,13 @@
 package com.example.mysalon.controllers
 
 import android.content.Context
+import android.content.Intent
+import android.widget.Toast
 import androidx.room.Room
+import com.example.mysalon.AgendaActivity
 import com.example.mysalon.lib.AppDatabase
 import com.example.mysalon.models.Cliente
+import com.example.mysalon.models.ClienteEntity
 
 class ClienteController constructor(ctx: Context, userId: Long = 0) {
     private val ctx = ctx
@@ -16,21 +20,57 @@ class ClienteController constructor(ctx: Context, userId: Long = 0) {
         .build()
         .clienteDao()
 
-    fun obtenerCliente(): ArrayList<Cliente> {
+    fun agregarCliente(cliente: Cliente) {
+        //buscar si ya existe
         val clientesEntities = dao.findByAll(userId)
+        val clienteExistente = clientesEntities.find { c -> c.email == cliente.email }
+        if (clienteExistente != null) {
+            Toast.makeText(this.ctx, "El cliente ya existe", Toast.LENGTH_SHORT).show()
+            return
+        }
 
+        try {
+            val clienteEntity = ClienteEntity(
+                id = cliente.id,
+                nombresApellidos = cliente.nombresApellidos,
+                telefono = cliente.telefono,
+                email = cliente.email,
+                cumpleanos = cliente.cumpleanos,
+                done = cliente.done,
+                userId = userId
+            )
+
+            dao.insert(clienteEntity)
+
+            Toast.makeText(this.ctx, "Cliente registrado con exito", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this.ctx, AgendaActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            this.ctx.startActivity(intent)
+
+        } catch (e: Exception) {
+            Toast.makeText(this.ctx, "Error al registrar cliente: " + e.message, Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    fun obtenerClientes(): List<Cliente> {
         val clientes = ArrayList<Cliente>()
 
-        clientesEntities.forEach { cliente -> clientes.add(Cliente(
-                    id = cliente.id,
-                    nombresApellidos = cliente.nommbresApellidos,
-                    telefono = cliente.telefono,
-                    email = cliente.telefono,
-                    cumpleanos = cliente.cumpleanos,
-                    done = cliente.done
-                )
+        //obtener los clientes desde la bd
+        val clientesEntities = dao.findByAll(userId)
+        clientesEntities.forEach { c ->
+            val cliente = Cliente(
+                id = c.id,
+                nombresApellidos = c.nombresApellidos,
+                telefono = c.telefono,
+                email = c.telefono,
+                cumpleanos = c.cumpleanos,
+                done = c.done
             )
+            clientes.add(cliente);
         }
+
         return clientes
     }
 }
