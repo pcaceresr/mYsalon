@@ -8,6 +8,7 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mysalon.controllers.AgendaController
+import com.example.mysalon.controllers.AuthController
 import com.example.mysalon.ui.AgendaAdapter
 
 class AgendaActivity : AppCompatActivity() {
@@ -16,11 +17,7 @@ class AgendaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_agenda)
 
         val btnToSalir = findViewById<Button>(R.id.activity_agenda_btn_salir)
-        btnToSalir.setOnClickListener {
-            val irVistaIngreso = Intent(this, IngresoActivity::class.java)
-            irVistaIngreso.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(irVistaIngreso)
-        }
+
 
         val btnToAgregarCita = findViewById<Button>(R.id.activity_agenda_btn_agregar)
         btnToAgregarCita.setOnClickListener {
@@ -56,7 +53,14 @@ class AgendaActivity : AppCompatActivity() {
                 Toast.makeText(view.context, agenda.title, Toast.LENGTH_SHORT).show()
 
             }
+
+
         }
 
+        btnToSalir.setOnClickListener {
+            val controller = AuthController(this)
+            controller.clearSession()
+
+        }
     }
 }
