@@ -3,7 +3,9 @@ package com.example.mysalon.controllers
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Handler
 import android.text.Editable
+import android.util.Log
 import android.widget.Toast
 import androidx.room.Room
 import com.example.mysalon.AgendaActivity
@@ -14,10 +16,12 @@ import com.example.mysalon.lib.BCrypt
 import com.example.mysalon.models.User
 import com.example.mysalon.models.UserEntity
 import java.util.*
+import java.util.logging.Handler as Handler1
 
-val INCORRECT_CREDENTIALS = "Credenciales incorrectas"
 
 class AuthController constructor(ctx: Context) {
+    private val sharedPref = ctx.getSharedPreferences("MySalon", Context.MODE_PRIVATE)
+    private val INCORRECT_CREDENTIALS = "Credenciales incorrectas"
     private val ctx = ctx
     private val dao = Room.databaseBuilder(
         ctx.applicationContext,
@@ -36,6 +40,9 @@ class AuthController constructor(ctx: Context) {
         }
         if (BCrypt.checkpw(password, user.password)) {
             Toast.makeText(this.ctx, "Bienvenido(a) ${user.nombre}", Toast.LENGTH_SHORT).show()
+            val sharedEdit = sharedPref.edit()
+            sharedEdit.putLong("user_id", user.id!!)
+            sharedEdit.commit()
             val intent = Intent(this.ctx, AgendaActivity::class.java)
             this.ctx.startActivity(intent)
             (this.ctx as Activity).finish()
@@ -94,6 +101,34 @@ class AuthController constructor(ctx: Context) {
         val intent = Intent(this.ctx, ListadoClientesActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         this.ctx.startActivity(intent)
+    }
+
+    fun checkUserSession() {
+        val id = sharedPref.getLong("user_id", -1)
+
+        //Log.e("Check user session", id.toString())
+
+        Handler().postDelayed({
+            if (id == (-1).toLong()) {
+                val intent = Intent(this.ctx, IngresoActivity::class.java)
+                this.ctx.startActivity(intent)
+
+            } else {
+                val intent = Intent(this.ctx, AgendaActivity::class.java)
+                this.ctx.startActivity(intent)
+            }
+            (this.ctx as Activity).finish()
+        }, 2000)
+
+    }
+
+    fun clearSession() {
+        val editor = sharedPref.edit()
+        editor.remove("user_id")
+        editor.commit()
+        val intent = Intent(this.ctx, IngresoActivity::class.java)
+        this.ctx.startActivity(intent)
+        (this.ctx as Activity).finish()
     }
 
 }

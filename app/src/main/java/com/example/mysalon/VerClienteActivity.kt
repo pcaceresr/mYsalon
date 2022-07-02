@@ -23,7 +23,8 @@ class VerClienteActivity : AppCompatActivity() {
         val tilCumpleanos = findViewById<TextInputLayout>(R.id.activity_editar_cliente_til_cumpleanos)
 
         tilNombresApellidos.getEditText()?.setText(clienteSeleccionado.nombresApellidos);
-
+        tilTelefono.getEditText()?.setText(clienteSeleccionado.telefono);
+        tilEmail.getEditText()?.setText(clienteSeleccionado.email);
 
 
         val btnToListadoClientesEditar = findViewById<Button>(R.id.activity_ver_cliente_btn_editar)
