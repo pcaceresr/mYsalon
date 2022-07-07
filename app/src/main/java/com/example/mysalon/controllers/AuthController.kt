@@ -13,8 +13,12 @@ import com.example.mysalon.IngresoActivity
 import com.example.mysalon.ListadoClientesActivity
 import com.example.mysalon.lib.AppDatabase
 import com.example.mysalon.lib.BCrypt
-import com.example.mysalon.models.User
-import com.example.mysalon.models.UserEntity
+import com.example.mysalon.lib.RetrofitClient
+import com.example.mysalon.models.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import services.AuthService
 import java.util.*
 import java.util.logging.Handler as Handler1
 
@@ -23,6 +27,11 @@ class AuthController constructor(ctx: Context) {
     private val sharedPref = ctx.getSharedPreferences("MySalon", Context.MODE_PRIVATE)
     private val INCORRECT_CREDENTIALS = "Credenciales incorrectas"
     private val ctx = ctx
+    //Retrofit
+    private val retrofit = RetrofitClient.getRetrofitInstance()
+    private val authService = retrofit.create(AuthService::class.java)
+
+
     private val dao = Room.databaseBuilder(
         ctx.applicationContext,
         AppDatabase::class.java, "database-name"
@@ -32,6 +41,68 @@ class AuthController constructor(ctx: Context) {
         .userDao()
 
     fun login(email: String, password: String) {
+        val loginPayload = LoginPayloadDTO(email, password)
+        val call = authService.login(loginPayload)
+
+        call.enqueue(object : Callback<LoginResponseDTO> {
+            override fun onFailure(call: Call<LoginResponseDTO>, t: Throwable) {
+                Toast.makeText(ctx, "Error de conexión", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(
+                call: Call<LoginResponseDTO>,
+                response: Response<LoginResponseDTO>
+            ) {
+                if (response.code() != 200) {
+                    Toast.makeText(ctx, INCORRECT_CREDENTIALS, Toast.LENGTH_SHORT).show()
+                } else {
+                    val bodyResponse = response.body()
+                    Toast.makeText(ctx, "Bienvenido ${bodyResponse?.user?.id}", Toast.LENGTH_SHORT).show()
+                    val sharedEdit = sharedPref.edit()
+                    sharedEdit.putLong("user_id", bodyResponse?.user?.id!!)
+                    sharedEdit.putString("user_jwt", bodyResponse?.jwt!!)
+                    sharedEdit.commit()
+
+                    val intent = Intent(ctx, AgendaActivity::class.java)
+                    ctx.startActivity(intent)
+                    (ctx as Activity).finish()
+                }
+            }
+        })
+    }
+
+    fun registro(user: User) {
+        val registerPayload = RegisterPayloadDTO(
+            user.email,
+            user.email,
+            user.password
+        )
+
+        val call = authService.register(registerPayload)
+
+        call.enqueue(object : Callback<Void> {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(ctx, "Error de conexión", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(
+                call: Call<Void>,
+                response: Response<Void>
+            ) {
+                if (response.code() != 200) {
+                    Toast.makeText(ctx, "Cuenta existente", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(ctx, "Cuenta registrada", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(ctx, IngresoActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    ctx.startActivity(intent)
+                }
+            }
+        })
+    }
+
+   /* fun login(email: String, password: String) {
+
         val user = dao.findByEmail(email)
 
         if (user == null) {
@@ -75,7 +146,7 @@ class AuthController constructor(ctx: Context) {
         } catch (e: Exception) {
             Toast.makeText(this.ctx, "Cuenta existente", Toast.LENGTH_SHORT).show()
         }
-    }
+    }*/
 
     fun agregarCita(
         nombresApellidos: String,
@@ -125,6 +196,7 @@ class AuthController constructor(ctx: Context) {
     fun clearSession() {
         val editor = sharedPref.edit()
         editor.remove("user_id")
+        editor.remove("user_jwt")
         editor.commit()
         val intent = Intent(this.ctx, IngresoActivity::class.java)
         this.ctx.startActivity(intent)

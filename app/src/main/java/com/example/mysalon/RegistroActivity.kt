@@ -93,7 +93,6 @@ class RegistroActivity : AppCompatActivity() {
                     password = password
                 )
                 AuthController(this).registro(user)
-                Toast.makeText(this, "Cuenta registrada exitosamentes", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }

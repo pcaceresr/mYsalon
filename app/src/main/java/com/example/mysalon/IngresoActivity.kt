@@ -34,7 +34,7 @@ class IngresoActivity : AppCompatActivity() {
             if (emailValid && passwordValid) {
                 val controller = AuthController(this).login(email, password)
             } else {
-                Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Campos Inválidos", Toast.LENGTH_SHORT).show()
             }
 
         }
